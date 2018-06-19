@@ -37,7 +37,7 @@ func NewSnowflack() *Snowflake {
 		machineID: mID,
 	}
 }
-func (sf *Snowflake) NextID() (uint64, error) {
+func (sf *Snowflake) UUID() (uint64, error) {
 	const maskSequence = uint16(1<<BitLenSequence - 1)
 
 	sf.mutex.Lock()

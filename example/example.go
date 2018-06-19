@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	uuid, err := snowflake.NewSnowflack().NextID()
+	uuid, err := snowflake.NewSnowflack().UUID()
 	fmt.Println(uuid, err)
 }

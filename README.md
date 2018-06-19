@@ -15,5 +15,5 @@ $ go get github.com/willxm/snowflake
 ## Usage
 
 ```golang
-uuid, err := snowflake.NewSnowflack().NextID()
+uuid, err := snowflake.NewSnowflack().UUID()
 ```
