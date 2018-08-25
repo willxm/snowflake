@@ -3,7 +3,7 @@ Inspired by twitter snowflake
 
 ```
 +-------------------------------------------------------------------------------+
-| 1 Bit Unused | 41 Bit Timestamp |  10 Bit MachineIDID  |   12 Bit Sequence ID |
+| 1 Bit Unused | 39 Bit Timestamp |  16 Bit MachineIDID  |   8 Bit Sequence ID |
 +-------------------------------------------------------------------------------+
 ```
 
