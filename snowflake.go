@@ -1,7 +1,7 @@
 package snowflake
 
 import (
-	"errors"
+	"fmt"
 	"net"
 	"sync"
 	"time"
@@ -37,6 +37,8 @@ func NewSnowflack() *Snowflake {
 		machineID: mID,
 	}
 }
+
+// UUID ...
 func (sf *Snowflake) UUID() (uint64, error) {
 	const maskSequence = uint16(1<<BitLenSequence - 1)
 
@@ -75,7 +77,7 @@ func sleepTime(overtime int64) time.Duration {
 
 func (sf *Snowflake) toID() (uint64, error) {
 	if sf.elapsedTime >= 1<<BitLenTime {
-		return 0, errors.New("over the time limit")
+		return 0, fmt.Errorf("over the time limit")
 	}
 
 	return uint64(sf.elapsedTime)<<(BitLenSequence+BitLenMachineID) |
@@ -100,7 +102,7 @@ func privateIPv4() (net.IP, error) {
 			return ip, nil
 		}
 	}
-	return nil, errors.New("no private ip address")
+	return nil, fmt.Errorf("no private ip address")
 }
 
 func isPrivateIPv4(ip net.IP) bool {
